@@ -5,6 +5,8 @@ import it.gabrieletondi.telldontaskkata.domain.OrderStatus;
 import it.gabrieletondi.telldontaskkata.repository.OrderRepository;
 import it.gabrieletondi.telldontaskkata.service.ShipmentService;
 
+import static it.gabrieletondi.telldontaskkata.domain.OrderStatus.SHIPPED;
+
 public class OrderShipmentUseCase {
 
     private final OrderRepository orderRepository;
@@ -21,7 +23,7 @@ public class OrderShipmentUseCase {
 
         shipmentService.ship(order);
 
-        order.setStatus(OrderStatus.SHIPPED);
+        order.setStatus(SHIPPED);
         orderRepository.save(order);
     }
 
